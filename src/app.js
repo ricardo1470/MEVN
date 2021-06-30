@@ -10,12 +10,25 @@ const path = require("path");
 var createError = require("http-errors");
 //favicon
 var favicon = require("serve-favicon");
+//mongoose
+const mongoose = require('mongoose');
 // port assignment
 const port = 9000 || process.env.PORT;
 
 const routesProject = require("./routes/index");
 // eject express
 const app = express();
+
+//connect database
+mongoose.connect('mongodb://localhost/mevn', {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
+})
+    .then(db => console.log('db connected'))
+    .catch(err => console.log(err));
+
 
 // serttings
 
@@ -24,9 +37,14 @@ app.use(morgan("dev"));
 
 // middlewares
 app.use(cors());
-app.use(favicon(path.join(__dirname, 'public/img', 'favicon.ico')))
+app.use(favicon(path.join(__dirname, 'public/images/', 'favicon.ico')))
+app.use(express.json());
 
 // routes
+app.use('/', routesProject);
+
+// static files
+app.use(express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler
 
