@@ -1,0 +1,31 @@
+{
+  "name": "mevn",
+  "version": "1.0.0",
+  "description": "> # MERN --- <a href=\"personal logo\"><img src=\"https://github.com/ricardo1470/MEVN/blob/main/src/public/img/Backend.png\" alt=\"logo\" align=\"middle\" width=\"1000\" height=\"600\"></a> ---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src",
+    "start": "node src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricardo1470/MEVN.git"
+  },
+  "author": "Ricardo Camayo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ricardo1470/MEVN/issues"
+  },
+  "homepage": "https://github.com/ricardo1470/MEVN#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "morgan": "^1.10.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.8"
+  }
+}
