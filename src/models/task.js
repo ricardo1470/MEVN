@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const TaskSchema = new Schema({
     title: String,
-    description: String,
+    description: String
 });
 
 module.exports = mongoose.model('task', TaskSchema);

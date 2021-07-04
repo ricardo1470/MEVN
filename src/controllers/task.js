@@ -2,19 +2,19 @@
 const Task = require('../models/task');
 
 /* return endpoint to enter the home page */
-const gettask = (req, res) => {
-    res.send("hola mundo desde una ruta")
-    console.log("init");
+const gettask = async (req, res) => {
+    const resTask = await Task.find({});
+    res.json(resTask);
 };
 
 const findDb = async (req, res) => {
-    const resTask = await Task.find();
+    const resTask = await Task.findById(req.params.id);
     res.json(resTask);
 };
 
 const createTask = async (req, res) => {
-    const task = new Task(req.body);
-    await task.save();
+    const resTask = new Task(req.body);
+    await resTask.save();
     res.json({
         status: 'Task saved'
     });
@@ -28,7 +28,7 @@ const updateTask = async (req, res) => {
 };
 
 const deleteTask = async (req, res) => {
-    await Task.findByIdAndRemove(req.params.id);
+    await Task.findByIdAndRemove(req.params.taskId);
     res.json({
         status: 'Task Deleted'
     });
