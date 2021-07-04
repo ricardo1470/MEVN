@@ -5,7 +5,8 @@
 
 ## init project
 
-
+* `sudo service mongodb start`
+* `sudo service mongodb status`
 ---
 
 > ## Built with
