@@ -18,7 +18,13 @@
                                     <textarea cols="30" rows="10" v-model="task.description" placeholder="Insert a Description" class="form-control" ></textarea>
                                 </div>
 
-                                <button class="btn btn-outline-primary btn-block">Send</button>
+                                <template v-if="edit === false">
+                                    <button class="btn btn-outline-primary btn-block">Send</button>
+                                </template>
+
+                                <template v-else>
+                                    <button class="btn btn-outline-primary btn-block">Update</button>
+                                </template>
 
                             </form>
                         </div>
@@ -73,7 +79,9 @@
         data() {
             return {
                 task: new Task(),
-                tasks: []
+                tasks: [],
+                edit: false,
+                tasToEdit: ''
             }
         },
         created() {
@@ -81,19 +89,36 @@
         },
         methods: {
             sendTask() {
-                fetch('/api/tasks', {
-                    method: 'POST',
-                    body: JSON.stringify(this.task),
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    }
-                })
-                .then(res => res.json())
-                .then(data => {
-                    this.getTasks();
-                    this.task = new Task();
-                });
+                if(this.edit === false) {
+                    fetch('/api/tasks', {
+                        method: 'POST',
+                        body: JSON.stringify(this.task),
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        this.getTasks();
+                        this.task = new Task();
+                    });
+                } else {
+                    fetch('/api/tasks/' + this.tasToEdit, {
+                        method: 'PUT',
+                        body: JSON.stringify(this.task),
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        this.getTasks();
+                        this.task = new Task();
+                        this.edit = false;
+                    })
+                }
             },
             getTasks() {
                 fetch('/api/tasks')
@@ -117,11 +142,13 @@
                 })
             },
             editTask(id) {
-                fetch('/api/tasks' + id)
+                fetch('/api/tasks/' + id)
                     .then(res => res.json())
                     .then(data => {
-                        this.task = new Task(data.title, data.description)
-                    })
+                        this.task = new Task(data.title, data.description);
+                        this.tasToEdit = data._id;
+                        this.edit = true;
+                    });
             }
         }
 }
