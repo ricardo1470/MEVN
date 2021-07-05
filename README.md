@@ -3,7 +3,7 @@
 <a href="personal logo"><img src="https://github.com/ricardo1470/MEVN/blob/main/src/public/images/Backend.png" alt="logo" align="middle" width="1000" height="600"></a>
 ---
 
-## init project
+## init DataBase
 
 * `sudo service mongodb start`
 * `sudo service mongodb status`
