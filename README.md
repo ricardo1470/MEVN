@@ -1,5 +1,8 @@
 > # MERN
 ---
+![Project](https://www.code-inspector.com/project/24531/score/svg) ![Quality](https://www.code-inspector.com/project/24531/status/svg)
+
+---
 <a href="personal logo"><img src="https://github.com/ricardo1470/MEVN/blob/main/src/public/images/Backend.png" alt="logo" align="middle" width="1000" height="600"></a>
 ---
 
@@ -28,6 +31,11 @@ this project was built in: `Mongo`, `Express`, `Vuejs`, `Nodejs`, `Faker`
 
 | [<img src="https://github.com/ricardo1470/MEVN/blob/main/src/public/images/GitHub.png" alt="Github logo" width="34">](https://github.com/ricardo1470/README/blob/master/README.md) | [<img src="https://github.com/ricardo1470/MEVN/blob/main/src/public/images/email.png" alt="email logo" height="32">](mailto:ricardo.alfonso.camayo@gmail.com) | [<img src="https://github.com/ricardo1470/MEVN/blob/main/src/public/images/linkedin-icon.png" alt="Linkedin Logo" width="32">](https://www.linkedin.com/in/ricardo-alfonso-camayo/) | [<img src="https://github.com/ricardo1470/MEVN/blob/main/src/public/images/twitter.png" alt="Twitter Logo" width="30">](https://twitter.com/RICARDO1470) |
 |:---:|:---:|:---:|:---:|
+
+<a href="https://frontend.code-inspector.com/public/user/github/ricardo1470">
+   <img src="https://code-inspector.com/public/badge/user/github/ricardo1470?style=light" alt="code inspector badge" />
+</a>
+
 </div>
 
 ---
